@@ -1,0 +1,143 @@
+/* Styles pour le mode contraste élevé */
+html[data-contrast="high"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #4cc2ff;
+  --secondary-color: #50e3c2;
+  --accent-color: #ffcc00;
+  --border-color: #555555;
+  --card-bg: #1e1e1e;
+  --input-bg: #333333;
+  --success-color: #4caf50;
+  --error-color: #ff5252;
+}
+
+html[data-contrast="high"] body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+html[data-contrast="high"] .bg-white,
+html[data-contrast="high"] .bg-gray-50,
+html[data-contrast="high"] .bg-gray-100 {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+html[data-contrast="high"] .text-gray-600,
+html[data-contrast="high"] .text-gray-700,
+html[data-contrast="high"] .text-gray-800 {
+  color: var(--text-color);
+}
+
+html[data-contrast="high"] .bg-primary {
+  background-color: var(--primary-color);
+}
+
+html[data-contrast="high"] .bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+html[data-contrast="high"] .border {
+  border-color: var(--border-color) !important;
+}
+
+html[data-contrast="high"] input,
+html[data-contrast="high"] select,
+html[data-contrast="high"] textarea {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+html[data-contrast="high"] a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Styles pour le mode réduction des animations */
+html[data-reduced-motion="true"] *,
+html[data-reduced-motion="true"] *::before,
+html[data-reduced-motion="true"] *::after {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+html[data-reduced-motion="true"] .animate-spin,
+html[data-reduced-motion="true"] .animate-pulse,
+html[data-reduced-motion="true"] .animate-bounce,
+html[data-reduced-motion="true"] .animate-ping {
+  animation: none !important;
+}
+
+/* Styles pour le mode focus */
+html[data-focus-mode="true"] {
+  --focus-primary-color: #0284c7;
+  --focus-text-color: #111827;
+}
+
+/* Réduire les distractions visuelles */
+html[data-focus-mode="true"] header nav > * {
+  opacity: 0.5;
+}
+
+html[data-focus-mode="true"] header nav > *:hover,
+html[data-focus-mode="true"] header nav > *:focus {
+  opacity: 1;
+}
+
+html[data-focus-mode="true"] footer {
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+html[data-focus-mode="true"] footer:hover {
+  opacity: 1;
+}
+
+/* Augmenter le focus sur le contenu principal */
+html[data-focus-mode="true"] main {
+  position: relative;
+}
+
+html[data-focus-mode="true"] main:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Améliorer le focus sur les éléments interactifs */
+html[data-focus-mode="true"] button:focus,
+html[data-focus-mode="true"] a:focus,
+html[data-focus-mode="true"] input:focus,
+html[data-focus-mode="true"] select:focus,
+html[data-focus-mode="true"] textarea:focus {
+  outline: 3px solid var(--focus-primary-color);
+  outline-offset: 2px;
+}
+
+/* Réduire les éléments décoratifs */
+html[data-focus-mode="true"] .decoration,
+html[data-focus-mode="true"] .bg-pattern,
+html[data-focus-mode="true"] [aria-hidden="true"] {
+  opacity: 0.3;
+}
+
+/* Améliorer le contraste du texte */
+html[data-focus-mode="true"] p,
+html[data-focus-mode="true"] h1,
+html[data-focus-mode="true"] h2,
+html[data-focus-mode="true"] h3,
+html[data-focus-mode="true"] h4,
+html[data-focus-mode="true"] h5,
+html[data-focus-mode="true"] h6 {
+  color: var(--focus-text-color);
+}

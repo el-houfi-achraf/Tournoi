@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+    <rect width="800" height="600" fill="#FBBF24" />
+    <pattern id="diagonalPattern" patternUnits="userSpaceOnUse" width="60" height="60" patternTransform="rotate(45)">
+      <rect width="30" height="60" fill="rgba(255, 255, 255, 0.1)" />
+    </pattern>
+    <rect width="800" height="600" fill="url(#diagonalPattern)" />
+    <text x="400" y="300" font-family="Inter, sans-serif" font-size="53" font-weight="bold" fill="rgba(255, 255, 255, 0.9)" text-anchor="middle">Round Robin</text>
+    <text x="400" y="570" font-family="Inter, sans-serif" font-size="26" fill="rgba(255, 255, 255, 0.9)" text-anchor="middle">TournoMaster</text>
+  </svg>

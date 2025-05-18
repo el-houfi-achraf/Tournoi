@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#3B82F6" />
+    <title>TournoMaster - Hors ligne</title>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", system-ui, sans-serif;
+      }
+
+      body {
+        background-color: #f9fafb;
+        color: #1f2937;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .container {
+        max-width: 700px;
+        padding: 2rem;
+        background-color: white;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #3b82f6;
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .icon {
+        font-size: 4rem;
+        color: #3b82f6;
+        margin-bottom: 1.5rem;
+      }
+
+      .button {
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.2s;
+      }
+
+      .button:hover {
+        background-color: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">📡</div>
+      <h1>Vous êtes hors ligne</h1>
+      <p>
+        Impossible de charger TournoMaster car vous n'êtes pas connecté à
+        internet. Vérifiez votre connexion réseau et réessayez.
+      </p>
+      <p>
+        Si vous avez déjà visité cette page, certains contenus peuvent être
+        accessibles hors ligne.
+      </p>
+      <button class="button" onclick="window.location.reload()">
+        Réessayer
+      </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <rect width="1920" height="1080" fill="#3B82F6" />
+    <pattern id="diagonalPattern" patternUnits="userSpaceOnUse" width="60" height="60" patternTransform="rotate(45)">
+      <rect width="30" height="60" fill="rgba(255, 255, 255, 0.1)" />
+    </pattern>
+    <rect width="1920" height="1080" fill="url(#diagonalPattern)" />
+    <text x="960" y="540" font-family="Inter, sans-serif" font-size="128" font-weight="bold" fill="rgba(255, 255, 255, 0.9)" text-anchor="middle">Hero Background</text>
+    <text x="960" y="1050" font-family="Inter, sans-serif" font-size="64" fill="rgba(255, 255, 255, 0.9)" text-anchor="middle">TournoMaster</text>
+  </svg>
