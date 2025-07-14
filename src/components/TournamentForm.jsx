@@ -147,7 +147,7 @@ const TournamentForm = ({
             initial="initial"
             animate="animate"
             exit="exit"
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             <div>
               <label className="block text-gray-700 font-medium mb-2">
@@ -158,7 +158,7 @@ const TournamentForm = ({
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-3 py-2 sm:px-4 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-base"
                 placeholder="Exemple: Championnat d'été 2023"
               />
             </div>
@@ -167,10 +167,10 @@ const TournamentForm = ({
               <label className="block text-gray-700 font-medium mb-2">
                 Type de tournoi
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-3 sm:gap-4">
                 <label
                   className={`
-                  relative border-2 rounded-lg p-4 cursor-pointer transition-all
+                  relative border-2 rounded-lg p-3 sm:p-4 cursor-pointer transition-all
                   ${
                     formData.type === "groups"
                       ? "border-primary bg-blue-50"
@@ -187,10 +187,12 @@ const TournamentForm = ({
                     className="sr-only"
                   />
                   <div className="flex items-center">
-                    <div className="text-2xl mr-3">🏆</div>
-                    <div>
-                      <div className="font-bold">Phase de groupes</div>
-                      <div className="text-sm text-gray-500">
+                    <div className="text-xl sm:text-2xl mr-3">🏆</div>
+                    <div className="flex-1">
+                      <div className="font-bold text-sm sm:text-base">
+                        Phase de groupes
+                      </div>
+                      <div className="text-xs sm:text-sm text-gray-500">
                         Tous les participants s'affrontent avec classement
                       </div>
                     </div>

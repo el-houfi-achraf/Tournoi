@@ -128,11 +128,11 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-primary/30 to-dark/70"></div>
         </div>
         <motion.section
-          className="relative z-10 text-center py-32 md:py-40 px-4"
+          className="relative z-10 text-center py-16 sm:py-20 md:py-32 lg:py-40 px-4"
           style={{ opacity: headerOpacity, y: headerY }}
         >
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 text-white drop-shadow-lg"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 sm:mb-8 text-white drop-shadow-lg leading-tight"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -143,7 +143,7 @@ const Home = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-10 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -156,10 +156,11 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
               to="/create"
-              className="inline-block bg-white hover:bg-blue-50 text-primary font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1"
+              className="w-full sm:w-auto inline-block bg-white hover:bg-blue-50 text-primary font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center"
             >
               Créer un tournoi
             </Link>
@@ -168,10 +169,10 @@ const Home = () => {
       </div>
 
       {/* Tournament Types - Avec images réelles */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 px-4"
             variants={fadeIn}
             initial="hidden"
             whileInView="visible"
@@ -181,7 +182,7 @@ const Home = () => {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-10"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

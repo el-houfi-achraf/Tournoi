@@ -13,8 +13,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-dark text-white shadow-md">
-      <div className="container mx-auto px-4 py-4">
+    <header className="bg-dark text-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
             <motion.div
@@ -23,7 +23,7 @@ const Header = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-primary"
+                className="h-7 w-7 sm:h-8 sm:w-8 text-primary"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -34,11 +34,13 @@ const Header = () => {
                 />
               </svg>
             </motion.div>
-            <span className="font-bold text-xl md:text-2xl">TournoMaster</span>
+            <span className="font-bold text-lg sm:text-xl md:text-2xl">
+              TournoMaster
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-6 lg:space-x-8">
             <NavLink to="/" isActive={location.pathname === "/"}>
               Accueil
             </NavLink>

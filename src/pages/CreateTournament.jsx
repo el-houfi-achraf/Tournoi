@@ -51,6 +51,74 @@ const CreateTournament = () => {
     setStep((prev) => prev - 1);
   };
 
+  // Fonction pour mélanger un tableau (algorithme Fisher-Yates)
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
+  // Fonction pour organiser les matchs en évitant les matchs consécutifs pour une même équipe
+  const organizeMatches = (matches) => {
+    if (matches.length <= 1) return matches;
+
+    const organized = [];
+    const remaining = [...matches];
+    const teamLastMatchIndex = new Map(); // Garde trace du dernier match de chaque équipe
+
+    // Fonction pour vérifier si une équipe peut jouer maintenant
+    const canTeamPlay = (team, currentIndex) => {
+      const lastIndex = teamLastMatchIndex.get(team.name);
+      return lastIndex === undefined || currentIndex - lastIndex > 1;
+    };
+
+    // Fonction pour trouver le prochain match valide
+    const findNextMatch = (currentIndex) => {
+      for (let i = 0; i < remaining.length; i++) {
+        const match = remaining[i];
+        const team1CanPlay = canTeamPlay(match.team1, currentIndex);
+        const team2CanPlay = canTeamPlay(match.team2, currentIndex);
+
+        if (team1CanPlay && team2CanPlay) {
+          return i;
+        }
+      }
+      return -1;
+    };
+
+    // Organiser les matchs
+    let currentIndex = 0;
+    while (remaining.length > 0) {
+      const nextMatchIndex = findNextMatch(currentIndex);
+
+      if (nextMatchIndex !== -1) {
+        const match = remaining.splice(nextMatchIndex, 1)[0];
+        organized.push(match);
+
+        // Mettre à jour les indices des derniers matchs
+        teamLastMatchIndex.set(match.team1.name, currentIndex);
+        teamLastMatchIndex.set(match.team2.name, currentIndex);
+
+        currentIndex++;
+      } else {
+        // Si aucun match valide n'est trouvé, prendre le premier disponible
+        // (cas limite pour éviter une boucle infinie)
+        const match = remaining.shift();
+        organized.push(match);
+
+        teamLastMatchIndex.set(match.team1.name, currentIndex);
+        teamLastMatchIndex.set(match.team2.name, currentIndex);
+
+        currentIndex++;
+      }
+    }
+
+    return organized;
+  };
+
   const handleSubmit = () => {
     // Générer les matchs initiaux en fonction du type de tournoi
     let matches = [];
@@ -58,9 +126,12 @@ const CreateTournament = () => {
     if (formData.type === "groups") {
       // Algorithme pour générer les matchs de la phase de groupe
       const teams = [...formData.teams];
+
+      // Générer tous les matchs possibles
+      const allMatches = [];
       for (let i = 0; i < teams.length; i++) {
         for (let j = i + 1; j < teams.length; j++) {
-          matches.push({
+          allMatches.push({
             id: `match-${i}-${j}`,
             team1: teams[i],
             team2: teams[j],
@@ -71,6 +142,11 @@ const CreateTournament = () => {
           });
         }
       }
+
+      // Mélanger l'ordre des matchs pour une meilleure répartition
+      const shuffledMatches = shuffleArray(allMatches);
+      // Organiser les matchs pour éviter les matchs consécutifs
+      matches = organizeMatches(shuffledMatches);
     } else {
       // Algorithme pour générer les matchs d'élimination directe
       const teams = [...formData.teams];
