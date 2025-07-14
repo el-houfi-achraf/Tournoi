@@ -58,21 +58,24 @@ const Home = () => {
   ];
   // Témoignages avec des photos réelles (optimisées localement)
   const testimonials = [
-    {      id: 1,
+    {
+      id: 1,
       name: "Sophie Martin",
       role: "Organisatrice d'événements e-sport",
       image: "/images/real/profile-default-1.jpg",
       quote:
         "Cette plateforme a révolutionné notre façon d'organiser des tournois. Tout est si simple et intuitif !",
     },
-    {      id: 2,
+    {
+      id: 2,
       name: "Thomas Dubois",
       role: "Coach équipe amateur",
       image: "/images/real/profile-default-2.jpg",
       quote:
         "Nous utilisons cet outil pour tous nos tournois internes. L'interface est magnifique et très pratique.",
     },
-    {      id: 3,
+    {
+      id: 3,
       name: "Julie Leroy",
       role: "Directrice de club sportif",
       image: "/images/real/profile-default-3.jpg",
@@ -115,7 +118,8 @@ const Home = () => {
       {/* Hero Section avec background dynamique */}
       <div className="relative">
         {/* Background image avec effet parallax */}{" "}
-        <div          className="absolute inset-0 w-full h-full z-0 bg-cover bg-center bg-fixed"
+        <div
+          className="absolute inset-0 w-full h-full z-0 bg-cover bg-center bg-fixed"
           style={{
             backgroundImage: "url('/images/real/hero-background.jpg')",
             backgroundBlendMode: "overlay",

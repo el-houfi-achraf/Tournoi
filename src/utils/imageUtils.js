@@ -18,7 +18,8 @@ export const preloadCriticalImages = () => {
 };
 
 // Attribution du bon format d'image en fonction des capacités du navigateur
-export const getOptimizedImagePath = (path, format = "jpg") => {  // Utiliser des images JPG réelles
+export const getOptimizedImagePath = (path, format = "jpg") => {
+  // Utiliser des images JPG réelles
 
   // Vérifier si le navigateur prend en charge le format WebP
   const supportsWebp = () => {
@@ -29,22 +30,25 @@ export const getOptimizedImagePath = (path, format = "jpg") => {  // Utiliser de
     return false;
   };
   // Si le chemin contient optimized, le changer pour real
-  if (path.includes('/optimized/')) {
-    path = path.replace('/optimized/', '/real/');
+  if (path.includes("/optimized/")) {
+    path = path.replace("/optimized/", "/real/");
   }
-  
+
   // Si le chemin contient une extension SVG, la remplacer par JPG
-  if (path.includes('.svg')) {
+  if (path.includes(".svg")) {
     return path.replace(/\.svg$/, ".jpg");
   }
-  
+
   // Pour les profils par défaut, ajouter un numéro aléatoire
-  if (path.includes('profile-default')) {
+  if (path.includes("profile-default")) {
     // Numéro aléatoire entre 1 et 3
     const randomNum = Math.floor(Math.random() * 3) + 1;
-    return path.replace(/profile-default\.jpg$/, `profile-default-${randomNum}.jpg`);
+    return path.replace(
+      /profile-default\.jpg$/,
+      `profile-default-${randomNum}.jpg`
+    );
   }
-  
+
   return path;
 };
 
